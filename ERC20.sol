@@ -116,9 +116,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-allowance}.
      */
-    function allowance(address owner, address spender) public view virtual override returns (uint256) {
-        return _allowances[owner][spender];
-    }
+    // function allowance(address owner, address spender) public view virtual override returns (uint256) {
+    //     return _allowances[owner][spender];
+    // }
 
     /**
      * @dev See {IERC20-approve}.
@@ -127,10 +127,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 amount) public virtual override returns (bool) {
-        _approve(_msgSender(), spender, amount);
-        return true;
-    }
+    // function approve(address spender, uint256 amount) public virtual override returns (bool) {
+    //     _approve(_msgSender(), spender, amount);
+    //     return true;
+    // }
 
     /**
      * @dev See {IERC20-transferFrom}.
