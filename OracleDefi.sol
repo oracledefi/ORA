@@ -6,7 +6,7 @@ import "./ERC20.sol";
 import "./IERC20.sol";
 
 
-contract Token is ERC20 {
+contract OracleDefi is ERC20 {
     
     address public deployer;
     constructor() ERC20("oracledefi.finance", "ORA" ) {
