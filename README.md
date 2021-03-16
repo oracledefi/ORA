@@ -18,7 +18,7 @@ ORA
 No, the maximum number of tokens is created at the time of deployment. No "mint" functions are accessible after the token has been deployed.
 
 ## _Number of pieces for sale on Uniswap:_
-90.000 ORA
+80.000 ORA
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
