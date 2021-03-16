@@ -26,7 +26,7 @@ No, the maximum number of tokens is created at the time of deployment. No "mint"
 # Links
 
 ## Etherscan link: 
-https://etherscan.io/
+https://etherscan.io/token/0xdaac42a9861721146be5969d11f5dc495213c2f6
 
 ## Uniswap info token
 https://info.uniswap.org/home
