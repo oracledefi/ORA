@@ -116,9 +116,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-allowance}.
      */
-    // function allowance(address owner, address spender) public view virtual override returns (uint256) {
-    //     return _allowances[owner][spender];
-    // }
+    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+        return _allowances[owner][spender];
+    }
 
     /**
      * @dev See {IERC20-approve}.
@@ -127,10 +127,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    // function approve(address spender, uint256 amount) public virtual override returns (bool) {
-    //     _approve(_msgSender(), spender, amount);
-    //     return true;
-    // }
+    function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        _approve(_msgSender(), spender, amount);
+        return true;
+    }
 
     /**
      * @dev See {IERC20-transferFrom}.
@@ -145,15 +145,15 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - the caller must have allowance for ``sender``'s tokens of at least
      * `amount`.
      */
-    // function transferFrom(address sender, address recipient, uint256 amount) public virtual override returns (bool) {
-    //     _transfer(sender, recipient, amount);
+    function transferFrom(address sender, address recipient, uint256 amount) public virtual override returns (bool) {
+        _transfer(sender, recipient, amount);
 
-    //     uint256 currentAllowance = _allowances[sender][_msgSender()];
-    //     require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
-    //     _approve(sender, _msgSender(), currentAllowance - amount);
+        uint256 currentAllowance = _allowances[sender][_msgSender()];
+        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        _approve(sender, _msgSender(), currentAllowance - amount);
 
-    //     return true;
-    // }
+        return true;
+    }
 
     /**
      * @dev Atomically increases the allowance granted to `spender` by the caller.
@@ -167,10 +167,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    // function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
-    //     _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
-    //     return true;
-    // }
+    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+        _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
+        return true;
+    }
 
     /**
      * @dev Atomically decreases the allowance granted to `spender` by the caller.
@@ -186,13 +186,13 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `spender` must have allowance for the caller of at least
      * `subtractedValue`.
      */
-    // function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
-    //     uint256 currentAllowance = _allowances[_msgSender()][spender];
-    //     require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
-    //     _approve(_msgSender(), spender, currentAllowance - subtractedValue);
+    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+        uint256 currentAllowance = _allowances[_msgSender()][spender];
+        require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
+        _approve(_msgSender(), spender, currentAllowance - subtractedValue);
 
-    //     return true;
-    // }
+        return true;
+    }
 
     /**
      * @dev Moves tokens `amount` from `sender` to `recipient`.
